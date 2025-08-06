@@ -3,8 +3,11 @@
     borderThickness="extrathick 0 0 0" に変換されます。
     
   備考:
-    Table は Grid と異なりデフォルトで罫線が regular なので
-    borderThickness="extrathick regular regular regular" が正しいです。
+    - Table は Grid と異なりデフォルトで罫線が regular なので
+      borderThickness="extrathick regular regular regular" が正しいです。
+    - Table のその他のケースについては、まだ確認できる状況にない部分が大きいので未確認ですが、
+      行数がバインディングデータに依存する都合上、絶対に特定不可能なケースがあることが予想されます。
+      そのあたりの詳細は別途要確認、あるいは早々に諦めるなど、柔軟な対応が必要と思われます。
 -->
 
 <LayoutXml>
