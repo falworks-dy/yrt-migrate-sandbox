@@ -1,0 +1,11 @@
+<!--
+  事象:
+    XML内容に関わらず、不要な style.xml が生成されます。
+-->
+
+<LayoutXml>
+  <LinearLayout>
+    <LayoutBody>
+    </LayoutBody>
+  </LinearLayout>
+</LayoutXml>

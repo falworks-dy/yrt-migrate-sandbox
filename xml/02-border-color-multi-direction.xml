@@ -1,0 +1,112 @@
+<!-- 
+  事象:
+    borderColor系属性で複数方向を指定したときに rgb() 等が変換対象になりません。
+    （レイアウト 3つ目）
+-->
+
+<LayoutXml>
+
+  <LinearLayout margin="20">
+    <LayoutBody>
+      <Text>以下いずれも borderThickness="10"</Text>
+      <Spacer height="8" />
+
+      <Text size="9">[start]</Text>
+      <LinearBlock height="30" borderThickness="10">
+        <Text>borderColor 未指定</Text>
+      </LinearBlock>
+      <Text size="9">[end]</Text>
+
+      <Spacer height="8" />
+
+      <Text size="9">[start]</Text>
+      <LinearBlock height="30" borderThickness="10" borderColor="grayscale(0)">
+        <Text>borderColor="grayscale(0)"</Text>
+      </LinearBlock>
+      <Text size="9">[end]</Text>
+
+      <Spacer height="8" />
+
+      <Text size="9">[start]</Text>
+      <LinearBlock height="30" borderThickness="10" borderColor="cmyk(1,0,0,0)">
+        <Text>borderColor="cmyk(1,0,0,0)"</Text>
+      </LinearBlock>
+      <Text size="9">[end]</Text>
+
+      <Spacer height="8" />
+
+      <Text size="9">[start]</Text>
+      <LinearBlock height="30" borderThickness="10" borderColor="Transparent">
+        <Text>borderColor="Transparent"</Text>
+      </LinearBlock>
+      <Text size="9">[end]</Text>
+
+      </LayoutBody>
+  </LinearLayout>
+
+  <LinearLayout>
+    <LayoutBody>
+      <Text size="9">[start]</Text>
+      <LinearBlock height="30" borderThickness="10" borderColor="rgb(1, 0, 1)">
+        <Text>borderColor="rgb(1, 0, 1)"</Text>
+      </LinearBlock>
+      <Text size="9">[end]</Text>
+
+      <Spacer height="8" />
+
+      <Text size="9">[start]</Text>
+      <LinearBlock height="30" borderThickness="10" borderColor="#AA00EE">
+        <Text>borderColor="#AA00EE"</Text>
+      </LinearBlock>
+      <Text size="9">[end]</Text>
+
+      <Spacer height="8" />
+
+      <Text size="9">[start]</Text>
+      <LinearBlock height="30" borderThickness="10" borderColor="maroon">
+        <Text>borderColor="maroon"</Text>
+      </LinearBlock>
+      <Text size="9">[end]</Text>
+
+    </LayoutBody>
+  </LinearLayout>
+
+  <LinearLayout margin="20">
+    <LayoutBody>
+
+      <Text size="9">[start]</Text>
+      <LinearBlock height="30" borderThickness="10" borderColor="cmyk(1,0,0,0)">
+        <Text>borderColor="cmyk(1,0,0,0)"</Text>
+      </LinearBlock>
+      <Text size="9">[end]</Text>
+
+      <Spacer height="8" />
+
+      <Text size="9">[start]</Text>
+      <LinearBlock height="30" borderThickness="10" borderColor="cmyk(1,0,0,0) cmyk(0,1,0,0)">
+        <Text>borderColor="cmyk(1,0,0,0) cmyk(0,1,0,0)"</Text>
+      </LinearBlock>
+      <Text size="9">[end]</Text>
+
+      <Spacer height="8" />
+
+      <Text size="9">[start]</Text>
+      <LinearBlock height="30" borderThickness="10"
+        borderColor="cmyk(1,0,0,0) cmyk(0,1,0,0) cmyk(0,0,1,0)">
+        <Text>borderColor="cmyk(1,0,0,0) cmyk(0,1,0,0) cmyk(0,0,1,0)"</Text>
+      </LinearBlock>
+      <Text size="9">[end]</Text>
+
+      <Spacer height="8" />
+
+      <Text size="9">[start]</Text>
+      <LinearBlock height="30" borderThickness="10"
+        borderColor="cmyk(1,0,0,0) cmyk(0,1,0,0) cmyk(0,0,1,0) cmyk(0,0,0,1)">
+        <Text>borderColor="cmyk(1,0,0,0) cmyk(0,1,0,0) cmyk(0,0,1,0) cmyk(0,0,0,1)"</Text>
+      </LinearBlock>
+      <Text size="9">[end]</Text>
+
+    </LayoutBody>
+  </LinearLayout>
+
+</LayoutXml>

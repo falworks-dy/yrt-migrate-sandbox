@@ -1,0 +1,13 @@
+<!-- 
+  事象:
+    LayoutBody が追加されません。
+
+  備考:
+    add_layout_body.mjs にて、LinearLayout の子要素の分類をしていますが、
+    そもそも Layout(Header|Body|Footer) 以外の子要素がある時点で不正なXMLです。
+    簡単に「LayoutBody が無かったら、空の LayoutBody を追加する」だけで良いと思われます。
+-->
+
+<LayoutXml>
+  <LinearLayout></LinearLayout>
+</LayoutXml>

@@ -1,0 +1,178 @@
+<!-- 
+  事象:
+    borderStyle系属性で複数方向を指定したときに dasharray() が変換対象になりません。
+    （レイアウト 2つ目）
+-->
+
+<LayoutXml>
+  <LinearLayout margin="20 30 5 30">
+    <LayoutBody>
+      <Text>以下すべてのグリッドで borderThickness="0.5" です。</Text>
+      <Spacer height="8" />
+
+      <Text>各セルで borderStyle 未指定</Text>
+      <Text size="9">[start]</Text>
+      <Grid rows="10 10" cols="* *" borderThickness="0.5">
+        <GridCell row="0" col="0">
+          <Text>セル 0, 0</Text>
+        </GridCell>
+        <GridCell row="0" col="1">
+          <Text>セル 0, 1</Text>
+        </GridCell>
+        <GridCell row="1" col="0">
+          <Text>セル 1, 0</Text>
+        </GridCell>
+        <GridCell row="1" col="1">
+          <Text>セル 1, 1</Text>
+        </GridCell>
+      </Grid>
+      <Text size="9">[end]</Text>
+
+      <Spacer height="8" />
+
+      <Text>セル 0, 0 で borderStyle="solid"</Text>
+      <Text size="9">[start]</Text>
+      <Grid rows="10 10" cols="* *" borderThickness="0.5">
+        <GridCell row="0" col="0" borderStyle="solid">
+          <Text>セル 0, 0</Text>
+        </GridCell>
+        <GridCell row="0" col="1">
+          <Text>セル 0, 1</Text>
+        </GridCell>
+        <GridCell row="1" col="0">
+          <Text>セル 1, 0</Text>
+        </GridCell>
+        <GridCell row="1" col="1">
+          <Text>セル 1, 1</Text>
+        </GridCell>
+      </Grid>
+      <Text size="9">[end]</Text>
+
+      <Spacer height="8" />
+
+      <Text>セル 0, 0 で borderStyle="double"</Text>
+      <Text size="9">[start]</Text>
+      <Grid rows="10 10" cols="* *" borderThickness="0.5">
+        <GridCell row="0" col="0" borderStyle="double">
+          <Text>セル 0, 0</Text>
+        </GridCell>
+        <GridCell row="0" col="1">
+          <Text>セル 0, 1</Text>
+        </GridCell>
+        <GridCell row="1" col="0">
+          <Text>セル 1, 0</Text>
+        </GridCell>
+        <GridCell row="1" col="1">
+          <Text>セル 1, 1</Text>
+        </GridCell>
+      </Grid>
+      <Text size="9">[end]</Text>
+
+      <Spacer height="8" />
+
+      <Text>セル 0, 0 で borderStyle="dasharray(2, 1, 1, 1)"</Text>
+      <Text size="9">[start]</Text>
+      <Grid rows="10 10" cols="* *" borderThickness="0.5">
+        <GridCell row="0" col="0" borderStyle="dasharray(2, 1, 1, 1)">
+          <Text>セル 0, 0</Text>
+        </GridCell>
+        <GridCell row="0" col="1">
+          <Text>セル 0, 1</Text>
+        </GridCell>
+        <GridCell row="1" col="0">
+          <Text>セル 1, 0</Text>
+        </GridCell>
+        <GridCell row="1" col="1">
+          <Text>セル 1, 1</Text>
+        </GridCell>
+      </Grid>
+      <Text size="9">[end]</Text>
+
+      <Spacer height="8" />
+
+      <Text>セル 0, 0 で borderStyle="dot"</Text>
+      <Text size="9">[start]</Text>
+      <Grid rows="10 10" cols="* *" borderThickness="0.5">
+        <GridCell row="0" col="0" borderStyle="dot">
+          <Text>セル 0, 0</Text>
+        </GridCell>
+        <GridCell row="0" col="1">
+          <Text>セル 0, 1</Text>
+        </GridCell>
+        <GridCell row="1" col="0">
+          <Text>セル 1, 0</Text>
+        </GridCell>
+        <GridCell row="1" col="1">
+          <Text>セル 1, 1</Text>
+        </GridCell>
+      </Grid>
+      <Text size="9">[end]</Text>
+
+      <Spacer height="8" />
+
+      <Text>セル 0, 0 で borderStyle="dash"</Text>
+      <Text size="9">[start]</Text>
+      <Grid rows="10 10" cols="* *" borderThickness="0.5">
+        <GridCell row="0" col="0" borderStyle="dash">
+          <Text>セル 0, 0</Text>
+        </GridCell>
+        <GridCell row="0" col="1">
+          <Text>セル 0, 1</Text>
+        </GridCell>
+        <GridCell row="1" col="0">
+          <Text>セル 1, 0</Text>
+        </GridCell>
+        <GridCell row="1" col="1">
+          <Text>セル 1, 1</Text>
+        </GridCell>
+      </Grid>
+      <Text size="9">[end]</Text>
+
+    </LayoutBody>
+  </LinearLayout>
+
+  <LinearLayout>
+    <LayoutBody>
+
+      <Text>セル 1, 1 で borderStyle="dash"</Text>
+      <Text size="9">[start]</Text>
+      <Grid rows="10 10" cols="* *" borderThickness="0.5">
+        <GridCell row="0" col="0">
+          <Text>セル 0, 0</Text>
+        </GridCell>
+        <GridCell row="0" col="1">
+          <Text>セル 0, 1</Text>
+        </GridCell>
+        <GridCell row="1" col="0">
+          <Text>セル 1, 0</Text>
+        </GridCell>
+        <GridCell row="1" col="1" borderStyle="dash">
+          <Text>セル 1, 1</Text>
+        </GridCell>
+      </Grid>
+      <Text size="9">[end]</Text>
+
+      <Spacer height="8" />
+
+      <Text>セル 0, 0 で borderStyle="solid dot dash dasharray(1,2)"</Text>
+      <Text size="9">[start]</Text>
+      <Grid rows="10 10" cols="* *" borderThickness="0.5">
+        <GridCell row="0" col="0" borderStyle="solid dot dash dasharray(1,2)">
+          <Text>セル 0, 0</Text>
+        </GridCell>
+        <GridCell row="0" col="1">
+          <Text>セル 0, 1</Text>
+        </GridCell>
+        <GridCell row="1" col="0">
+          <Text>セル 1, 0</Text>
+        </GridCell>
+        <GridCell row="1" col="1">
+          <Text>セル 1, 1</Text>
+        </GridCell>
+      </Grid>
+      <Text size="9">[end]</Text>
+
+    </LayoutBody>
+  </LinearLayout>
+
+</LayoutXml>
