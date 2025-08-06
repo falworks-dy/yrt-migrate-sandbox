@@ -1,346 +1,39 @@
 <!-- 
   事象:
-    旧Style系要素（この例では TableStyle）の color 系属性の表記が、マイグレート後も古いままです。
+    旧Style系要素（この例では GridStyle）に含まれるマイグレート対象の属性が、StyleXML に移動した後も古いままです。
 
   備考:
-    - 表記変換系ステップが LayoutXML しか対象にしていないため、StyleXML 抽出済みのXMLが手付かずになるようです。
-    - borderStyle系の dasharray() などもおそらく同様
+    各種変換ステップが LayoutXML しか対象にしていないため、StyleXML に抽出済みのXMLが手付かずになるようです。
 -->
 
 <LayoutXml>
-
-  <LinearLayout margin="20">
-    <LayoutBody>
-      <Text>以下、TableStyle には一律で</Text>
-      <Text>    borderThickness="thick" outerBorderThickness="1.41"</Text>
-      <Text>    borderColor="cmyk(1,0,0,0)" outerBorderColor="cmyk(0,1,0,0)"</Text>
-      <Text>    borderStyle="dash" outerBorderStyle="dot"</Text>
-      <Text>    backgroundColor="cmyk(0,0,0.2,0)"</Text>
-      <Text>を指定し、加えてそれぞれのケースで row, col を指定します。</Text>
-
-      <Spacer height="7" />
-      <Text>row 未指定 col 未指定</Text>
-      <Table items="${items}">
-        <TableStyle borderThickness="thick" outerBorderThickness="1.41" borderColor="cmyk(1,0,0,0)" outerBorderColor="cmyk(0,1,0,0)" borderStyle="dash" outerBorderStyle="dot" backgroundColor="cmyk(0,0,0.2,0)" />
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 0</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column0}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 0</Text>
-          </TableColumnFooter>
-        </TableColumn>
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 1</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column1}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 1</Text>
-          </TableColumnFooter>
-        </TableColumn>
-      </Table>
-
-      <Spacer height="7" />
-      <Text>row="all" col="all"</Text>
-      <Table items="${items}">
-        <TableStyle row="all" col="all" borderThickness="thick" outerBorderThickness="1.41" borderColor="cmyk(1,0,0,0)" outerBorderColor="cmyk(0,1,0,0)" borderStyle="dash" outerBorderStyle="dot" backgroundColor="cmyk(0,0,0.2,0)" />
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 0</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column0}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 0</Text>
-          </TableColumnFooter>
-        </TableColumn>
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 1</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column1}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 1</Text>
-          </TableColumnFooter>
-        </TableColumn>
-      </Table>
-
-      <Spacer height="7" />
-      <Text>row="0" col="all"</Text>
-      <Table items="${items}">
-        <TableStyle row="0" col="all" borderThickness="thick" outerBorderThickness="1.41" borderColor="cmyk(1,0,0,0)" outerBorderColor="cmyk(0,1,0,0)" borderStyle="dash" outerBorderStyle="dot" backgroundColor="cmyk(0,0,0.2,0)" />
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 0</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column0}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 0</Text>
-          </TableColumnFooter>
-        </TableColumn>
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 1</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column1}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 1</Text>
-          </TableColumnFooter>
-        </TableColumn>
-      </Table>
-
-      <Spacer height="7" />
-      <Text>row="all" col="1"</Text>
-      <Table items="${items}">
-        <TableStyle row="all" col="1" borderThickness="thick" outerBorderThickness="1.41" borderColor="cmyk(1,0,0,0)" outerBorderColor="cmyk(0,1,0,0)" borderStyle="dash" outerBorderStyle="dot" backgroundColor="cmyk(0,0,0.2,0)" />
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 0</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column0}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 0</Text>
-          </TableColumnFooter>
-        </TableColumn>
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 1</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column1}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 1</Text>
-          </TableColumnFooter>
-        </TableColumn>
-      </Table>
-
-    </LayoutBody>
-  </LinearLayout>
-
-  <LinearLayout margin="20">
+  <LinearLayout>
     <LayoutBody>
 
-      <Text>マイナス指定や範囲指定も可能です。</Text>
+      <Grid cols="30" rows="10">
+        <GridStyle outerBorderTopThickness="1" />
+        <GridCell col="0" row="0">
+          <Text>text</Text>
+        </GridCell>
+      </Grid>
 
-      <Spacer height="7" />
-      <Text>row="-1" col="all"</Text>
-      <Table items="${items}">
-        <TableStyle row="-1" col="all" borderThickness="thick" outerBorderThickness="1.41" borderColor="cmyk(1,0,0,0)" outerBorderColor="cmyk(0,1,0,0)" borderStyle="dash" outerBorderStyle="dot" backgroundColor="cmyk(0,0,0.2,0)" />
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 0</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column0}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 0</Text>
-          </TableColumnFooter>
-        </TableColumn>
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 1</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column1}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 1</Text>
-          </TableColumnFooter>
-        </TableColumn>
-      </Table>
+      <Spacer height="10" />
 
-      <Spacer height="7" />
-      <Text>row="1:" col="all"</Text>
-      <Table items="${items}">
-        <TableStyle row="1:" col="all" borderThickness="thick" outerBorderThickness="1.41" borderColor="cmyk(1,0,0,0)" outerBorderColor="cmyk(0,1,0,0)" borderStyle="dash" outerBorderStyle="dot" backgroundColor="cmyk(0,0,0.2,0)" />
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 0</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column0}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 0</Text>
-          </TableColumnFooter>
-        </TableColumn>
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 1</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column1}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 1</Text>
-          </TableColumnFooter>
-        </TableColumn>
-      </Table>
+      <Grid cols="30" rows="10">
+        <GridStyle borderColor="rgb(0,0,0)" />
+        <GridCell col="0" row="0">
+          <Text>text</Text>
+        </GridCell>
+      </Grid>
 
-      <Spacer height="7" />
-      <Text>row="1:-2" col="all"</Text>
-      <Table items="${items}">
-        <TableStyle row="1:-2" col="all" borderThickness="thick" outerBorderThickness="1.41" borderColor="cmyk(1,0,0,0)" outerBorderColor="cmyk(0,1,0,0)" borderStyle="dash" outerBorderStyle="dot" backgroundColor="cmyk(0,0,0.2,0)" />
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 0</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column0}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 0</Text>
-          </TableColumnFooter>
-        </TableColumn>
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 1</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column1}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 1</Text>
-          </TableColumnFooter>
-        </TableColumn>
-      </Table>
+      <Spacer height="10" />
 
-    </LayoutBody>
-  </LinearLayout>
-
-  <LinearLayout margin="20">
-    <LayoutBody>
-      <Text>outerBorderStyle="dot"</Text>
-      <Table items="${items}">
-        <TableStyle row="1:3" col="all" borderThickness="thick" outerBorderThickness="1.41" borderColor="cmyk(1,0,0,0)" outerBorderColor="cmyk(0,1,0,0)" borderStyle="solid" outerBorderStyle="dot" backgroundColor="cmyk(0,0,0.2,0)" />
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 0</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column0}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 0</Text>
-          </TableColumnFooter>
-        </TableColumn>
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 1</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column1}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 1</Text>
-          </TableColumnFooter>
-        </TableColumn>
-      </Table>
-
-      <Spacer height="7" />
-
-      <Text>outerBorderStyle="dash"</Text>
-      <Table items="${items}">
-        <!-- このTableStyleのouterBorderを描画する部分で PDF.js、AcrobatReader がエラーを出す。ブラウザではエラーが出ずに正常に描画される -->
-        <TableStyle row="1:3" col="all" borderThickness="thick" outerBorderThickness="1.41" borderColor="cmyk(1,0,0,0)" outerBorderColor="cmyk(0,1,0,0)" borderStyle="solid" outerBorderStyle="dash" backgroundColor="cmyk(0,0,0.2,0)" />
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 0</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column0}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 0</Text>
-          </TableColumnFooter>
-        </TableColumn>
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 1</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column1}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 1</Text>
-          </TableColumnFooter>
-        </TableColumn>
-      </Table>
-
-      <Spacer height="7" />
-
-      <Text>outerBorderStyle="dashdot"</Text>
-      <Table items="${items}">
-        <TableStyle row="1:3" col="all" borderThickness="thick" outerBorderThickness="1.41" borderColor="cmyk(1,0,0,0)" outerBorderColor="cmyk(0,1,0,0)" borderStyle="solid" outerBorderStyle="dashdot" backgroundColor="cmyk(0,0,0.2,0)" />
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 0</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column0}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 0</Text>
-          </TableColumnFooter>
-        </TableColumn>
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 1</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column1}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 1</Text>
-          </TableColumnFooter>
-        </TableColumn>
-      </Table>
-
-      <Spacer height="7" />
-
-      <Text>outerBorderStyle="none"</Text>
-      <Table items="${items}">
-        <TableStyle row="1:3" col="all" borderThickness="thick" outerBorderThickness="1.41" borderColor="cmyk(1,0,0,0)" outerBorderColor="cmyk(0,1,0,0)" borderStyle="solid" outerBorderStyle="none" backgroundColor="cmyk(0,0,0.2,0)" />
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 0</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column0}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 0</Text>
-          </TableColumnFooter>
-        </TableColumn>
-        <TableColumn width="40">
-          <TableColumnHeader>
-            <Text>header 1</Text>
-          </TableColumnHeader>
-          <TableColumnTemplate>
-            <Text>${column1}</Text>
-          </TableColumnTemplate>
-          <TableColumnFooter>
-            <Text>footer 1</Text>
-          </TableColumnFooter>
-        </TableColumn>
-      </Table>
+      <Grid cols="30" rows="10">
+        <GridStyle borderStyle="dasharray(1,2)" />
+        <GridCell col="0" row="0">
+          <Text>text</Text>
+        </GridCell>
+      </Grid>
 
     </LayoutBody>
   </LinearLayout>
