@@ -1,0 +1,25 @@
+<!--
+  事象:
+    borderThickness="extrathick 0 0 0" に変換されます。
+    
+  備考:
+    Table は Grid と異なりデフォルトで罫線が regular なので
+    borderThickness="extrathick regular regular regular" が正しいです。
+-->
+
+<LayoutXml>
+  <LinearLayout>
+    <LayoutBody>
+      <Table items="${items}">
+        <TableColumn width="*">
+          <TableColumnHeader borderTopThickness="extrathick">
+            <Text>Column 1 Header</Text>
+          </TableColumnHeader>
+          <TableColumnTemplate>
+            <Text>Column 1 Body</Text>
+          </TableColumnTemplate>
+        </TableColumn>
+      </Table>
+    </LayoutBody>
+  </LinearLayout>
+</LayoutXml>
