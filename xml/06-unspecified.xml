@@ -1,0 +1,21 @@
+<!--
+  事象:
+    unspecified の属性が削除されません。
+    
+  備考:
+    - 単なる手順漏れかと思われます。
+    - `0 0 0 unspecified` のような表記は alpha.13 でも不可能なので、
+      `unspecified` が出てきたら常に属性ごと単純削除可能です。
+-->
+
+<LayoutXml>
+  <LinearLayout>
+    <LayoutBody>
+      <Grid rows="auto" cols="*">
+        <GridCell borderThickness="unspecified">
+          <Text>text</Text>
+        </GridCell>
+      </Grid>
+    </LayoutBody>
+  </LinearLayout>
+</LayoutXml>
