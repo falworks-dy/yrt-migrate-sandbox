@@ -1,0 +1,29 @@
+<!--
+  事象:
+    各種バインディングが無警告で StyleXML に移動します。
+  
+  備考:
+    StyleXML では全属性バインディング不可能です。
+-->
+
+<LayoutXml>
+  <LinearLayout>
+    <LayoutBody>
+
+      <Grid cols="30" rows="10">
+        <GridStyle
+          col="${val}"
+          row="${val}"
+          borderThickness="${val}"
+          outerBorderThickness="${val}"
+          outerBorderTopThickness="${val}"
+          backgroundColor="${val}"
+        />
+        <GridCell col="0" row="0">
+          <Text>text</Text>
+        </GridCell>
+      </Grid>
+
+    </LayoutBody>
+  </LinearLayout>
+</LayoutXml>
