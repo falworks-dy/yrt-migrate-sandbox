@@ -40,21 +40,22 @@ export async function cleanUp() {
     if (!await exists(XML_OUT_DIR)) return;
 
     const children = await fs.readdir(XML_OUT_DIR);
-    await Promise.all(children.map(child =>
-        fs.rm(join(XML_OUT_DIR, child), { recursive: true, force: true })
-    ));
+    await Promise.all(children.map(child => {
+        const childPath = join(XML_OUT_DIR, child);
+        fs.rm(childPath, { recursive: true, force: true });
+    }));
 }
 
 /**
  * Migrates all XML files in the input directory
  * and saves the unpacked XMLs.
  *
- * @param {(path: string) => boolean} [inputXmlFilepathFilter] 
+ * @param {(path: string) => boolean} [inputNameFilter] 
  */
-export async function migrateAllAndSaveXmls(inputXmlFilepathFilter) {
+export async function migrateAllAndSaveXmls(inputNameFilter) {
     let xmlFiles = await findFiles(XML_DIR, ".xml");
-    if (inputXmlFilepathFilter) {
-        xmlFiles = xmlFiles.filter(inputXmlFilepathFilter);
+    if (inputNameFilter) {
+        xmlFiles = xmlFiles.filter(filepath => inputNameFilter(getFilenameWithoutExt(filepath)));
     }
     if (xmlFiles.length === 0) {
         console.log("No XML files found to migrate.");
