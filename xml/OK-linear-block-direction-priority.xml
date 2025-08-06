@@ -1,0 +1,35 @@
+<LayoutXml>
+  <LinearLayout>
+    <LayoutBody>
+      <Text>LinearBlockのborderThicknessより方向指定が優先されます。</Text>
+      <Spacer height="10" />
+      <Text>borderThickness="1" borderTopThickness="3"</Text>
+      <Text size="9">[start]</Text>
+      <LinearBlock height="20" borderThickness="1" borderTopThickness="3">
+      </LinearBlock>
+      <Text size="9">[end]</Text>
+
+      <Spacer height="10" />
+      <Text>borderThickness="1" borderRightThickness="3"</Text>
+      <Text size="9">[start]</Text>
+      <LinearBlock height="20" borderThickness="1" borderRightThickness="3">
+      </LinearBlock>
+      <Text size="9">[end]</Text>
+
+      <Spacer height="10" />
+      <Text>borderThickness="1" borderBottomThickness="3"</Text>
+      <Text size="9">[start]</Text>
+      <LinearBlock height="20" borderThickness="1" borderBottomThickness="3">
+      </LinearBlock>
+      <Text size="9">[end]</Text>
+
+      <Spacer height="10" />
+      <Text>borderThickness="1" borderLeftThickness="3"</Text>
+      <Text size="9">[start]</Text>
+      <LinearBlock height="20" borderThickness="1" borderLeftThickness="3">
+      </LinearBlock>
+      <Text size="9">[end]</Text>
+    </LayoutBody>
+  </LinearLayout>
+
+</LayoutXml>

@@ -1,0 +1,29 @@
+<LayoutXml>
+  <LinearLayout orientation="horizontal">
+    <LayoutBody>
+      <Text>このテキストは hidden 未指定です。</Text>
+
+      <Spacer height="20" />
+
+      <Text hidden="false">このテキストは hidden="false" です。</Text>
+
+      <Spacer height="20" />
+
+      <Text hidden="${hiddenFalse}">このテキストはバインディングにより hidden=false です。</Text>
+
+      <Spacer height="20" />
+
+      <Text>下記 start-end 間に hidden="true" のテキストがありますが、表示されません。</Text>
+      <Text size="9">[start]</Text>
+      <Text hidden="true">このテキストは hidden="true" です。</Text>
+      <Text size="9">[end]</Text>
+
+      <Spacer height="20" />
+      
+      <Text>下記 start-end 間に バインディングにより hidden=true のテキストがありますが、表示されません。</Text>
+      <Text size="9">[start]</Text>
+      <Text hidden="${hiddenTrue}">このテキストはバインディングにより hidden=true です。</Text>
+      <Text size="9">[end]</Text>
+    </LayoutBody>
+  </LinearLayout>
+</LayoutXml>

@@ -1,0 +1,30 @@
+<!--
+  事象:
+    GridCell の個別方向指定属性を変換する際に、当該要素で未指定だった方向の値が正しく導出されません。（親子継承系）
+    - Grid1: GridCell が borderThickness="2 1 1 1" になるべきところ "2 0 0 0" になる
+    - Grid2: GridCell が borderThickness="1 2 0 0" になるべきところ "0 2 0 0" になる
+-->
+
+<LayoutXml>
+  <LinearLayout>
+    <LayoutBody>
+
+      <!-- Grid 1: Grid borderThickness から GridCell に継承 -->
+      <Grid cols="30" rows="10" borderThickness="1">
+        <GridCell col="0" row="0" borderTopThickness="2">
+          <Text>text</Text>
+        </GridCell>
+      </Grid>
+
+      <Spacer height="10" />
+
+      <!-- Grid 2: Grid outerBorderThickness から GridCell に継承 -->
+      <Grid cols="30" rows="10" outerBorderTopThickness="1">
+        <GridCell col="0" row="0" borderRightThickness="2">
+          <Text>text</Text>
+        </GridCell>
+      </Grid>
+
+    </LayoutBody>
+  </LinearLayout>
+</LayoutXml>

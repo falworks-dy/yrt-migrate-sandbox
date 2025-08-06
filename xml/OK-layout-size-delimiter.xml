@@ -1,0 +1,31 @@
+<LayoutXml>
+  <LinearLayout>
+    <LayoutBody>
+      <Text>size 未指定</Text>
+    </LayoutBody>
+  </LinearLayout>
+
+  <LinearLayout size="A4">
+    <LayoutBody>
+      <Text>size="A4"</Text>
+    </LayoutBody>
+  </LinearLayout>
+
+  <LinearLayout size="A5">
+    <LayoutBody>
+      <Text>size="A5"</Text>
+    </LayoutBody>
+  </LinearLayout>
+
+  <LinearLayout size="100, 150">
+    <LayoutBody>
+      <Text>size="100, 150"</Text>
+    </LayoutBody>
+  </LinearLayout>
+
+  <LinearLayout size="150, 100">
+    <LayoutBody>
+      <Text>size="150, 100"</Text>
+    </LayoutBody>
+  </LinearLayout>
+</LayoutXml>

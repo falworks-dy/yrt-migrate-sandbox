@@ -1,0 +1,10 @@
+<LayoutXml>
+  <LinearLayout>
+    <LayoutBody>
+      <Text>foreachで3回繰り返されます</Text>
+      <Text size="9">[start]</Text>
+      <Text foreach="${items}">${value}</Text>
+      <Text size="9">[end]</Text>
+    </LayoutBody>
+  </LinearLayout>
+</LayoutXml>

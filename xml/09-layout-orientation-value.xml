@@ -1,0 +1,26 @@
+<!--
+  事象:
+    レイアウト系要素の orientation の値が変換されません。
+
+  備考:
+    マイグレーション計画後に発生した変更なので対応事項にまだ追加されていないのかもしれません。
+    遭遇頻度が非常に高いので対応が必要です。
+    - 変換前: horizontal, vertical
+    - 変換後: landscape, portrait
+-->
+
+<LayoutXml>
+
+  <LinearLayout orientation="horizontal">
+    <LayoutBody>
+      <Text>orientation="horizontal"</Text>
+    </LayoutBody>
+  </LinearLayout>
+
+  <LinearLayout orientation="vertical">
+    <LayoutBody>
+      <Text>orientation="vertical"</Text>
+    </LayoutBody>
+  </LinearLayout>
+
+</LayoutXml>
