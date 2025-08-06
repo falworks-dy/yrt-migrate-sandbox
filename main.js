@@ -6,12 +6,13 @@ import { migrateAllAndSaveXmls } from './src/index.mjs';
  * @param {string} name ファイル名（拡張子なし）
  * @returns {boolean} true ならばファイルを処理対象とする
  */
-let inputFilter = (name) => {
+const inputFilter = (name) => {
     // 必要に応じて変更してください。
 
-    return !name.startsWith("OK"); // OK じゃないやつだけ処理
+    // if (name.startsWith("OK")) return false; // OK なやつを除外
+    // if (/^\d/.test(name)) return false; // 数字で始まるやつ（バグ系）を除外
 
-    // return true; // すべてのファイルを処理
+    return true;
 }
 
 /**
