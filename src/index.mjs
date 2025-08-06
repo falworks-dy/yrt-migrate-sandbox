@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import { join } from 'node:path';
 import { unpackYrt, extractXmlsFromYrt } from './yrt.mjs';
-import { findFiles, getFilenameWithoutExt } from './fs-utils.mjs';
+import { exists, findFiles, getFilenameWithoutExt } from './fs-utils.mjs';
 import { runNpx } from './process-utils.mjs';
 
 /**
@@ -37,7 +37,12 @@ export async function migrateAndSaveXmls(xmlFilepath) {
  * Cleans up the output directory.
  */
 export async function cleanUp() {
-    await fs.rm(XML_OUT_DIR, { recursive: true, force: true });
+    if (!await exists(XML_OUT_DIR)) return;
+
+    const children = await fs.readdir(XML_OUT_DIR);
+    await Promise.all(children.map(child =>
+        fs.rm(join(XML_OUT_DIR, child), { recursive: true, force: true })
+    ));
 }
 
 /**

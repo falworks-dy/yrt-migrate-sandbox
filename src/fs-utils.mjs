@@ -2,6 +2,15 @@ import fs from 'fs/promises';
 import path from 'path';
 
 /**
+ * Checks if a file or directory exists.
+ * @param {string} path 
+ * @returns {Promise<boolean>} Resolves to true if the path exists.
+ */
+export async function exists(path) {
+    return await fs.access(path).then(() => true, () => false);
+}
+
+/**
  * @param {string} src 
  * @param {string} dest 
  */
