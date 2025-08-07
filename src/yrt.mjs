@@ -3,11 +3,25 @@ import { promises as fs } from "fs";
 import { join } from "path";
 
 /**
- * @typedef {["YRT", 1, { l: [string, string][], s?: string }]} DecodedYrt
+ * @typedef {Object} DecodedYrtBody
+ * msgpackでデコードした直後の YRT v1.0 データのbody部分
+ *
+ * ※ yagisan-report-devtool リポジトリーの YrtFormat モジュールより
+ *
+ * @property {Array<[string|null, string]>} l レイアウト配列: [name, xml][]
+ * @property {string|null} s スタイルXML（nullable）
+ * @property {Object<string, Uint8Array>|null} a アセット（nullable, key: string, value: Uint8Array）
  */
 
 /**
- * @typedef {Object} UnpackedYrt
+ * @typedef {["YRT", 1, DecodedYrtBody]} DecodedYrt
+ * msgpackでデコードした直後の YRT v1.0 データ
+ *
+ * ※ yagisan-report-devtool リポジトリーの YrtFormat モジュールより
+ */
+
+/**
+ * @typedef {Object} UnpackedYrtXmls YRT v1.0 から抽出したXML（本リポジトリー専用）
  * @property {string[]} layouts - Array of layout XML strings.
  * @property {string | null} style - Style XML string or null if not present.
  */
@@ -28,7 +42,7 @@ export function decodeYrt(binary) {
  * Unpacks a YRT binary buffer and extracts layouts and style.
  *
  * @param {Uint8Array} binary - The packed binary buffer.
- * @returns {UnpackedYrt}
+ * @returns {UnpackedYrtXmls}
  */
 export function unpackYrt(binary) {
     const raw = decodeYrt(binary);
@@ -49,7 +63,7 @@ export function unpackYrt(binary) {
  * The files are named as `layout-<index>.xml` for layouts
  * and `style.xml` for style.
  * 
- * @param {UnpackedYrt} yrt 
+ * @param {UnpackedYrtXmls} yrt 
  * @param {string} outDir 
  */
 export async function extractXmlsFromYrt(yrt, outDir) {
