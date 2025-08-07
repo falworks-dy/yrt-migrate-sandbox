@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import { join } from 'node:path';
-import { unpackYrt, extractXmlsFromYrt } from './yrt.mjs';
+import { unpackYrtXmls, saveYrtXmls } from './yrt.mjs';
 import { exists, findFiles, getFilenameWithoutExt } from './fs-utils.mjs';
 import { runNpx } from './process-utils.mjs';
 
@@ -29,7 +29,7 @@ export async function migrateAndSaveXmls(xmlFilepath) {
     const yrtBuffer = await fs.readFile(yrtFilepath);
     await fs.unlink(yrtFilepath); // clean up
     const outDir = join(XML_OUT_DIR, name);
-    await extractXmlsFromYrt(unpackYrt(yrtBuffer), outDir);
+    await saveYrtXmls(unpackYrtXmls(yrtBuffer), outDir);
     console.log(`  output: ${outDir}`);
 }
 

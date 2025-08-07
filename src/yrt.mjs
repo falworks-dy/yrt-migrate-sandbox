@@ -44,7 +44,7 @@ export function decodeYrt(binary) {
  * @param {Uint8Array} binary - The packed binary buffer.
  * @returns {UnpackedYrtXmls}
  */
-export function unpackYrt(binary) {
+export function unpackYrtXmls(binary) {
     const raw = decodeYrt(binary);
     // raw: [doctype, version, body]
     const body = raw[2];
@@ -66,7 +66,7 @@ export function unpackYrt(binary) {
  * @param {UnpackedYrtXmls} yrt 
  * @param {string} outDir 
  */
-export async function extractXmlsFromYrt(yrt, outDir) {
+export async function saveYrtXmls(yrt, outDir) {
     let { layouts, style } = yrt;
 
     // Ensure output directory exists
