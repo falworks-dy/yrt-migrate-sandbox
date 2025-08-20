@@ -24,6 +24,10 @@
       <Text size="8">もともと改行ありの Text:</Text>
       <Text>
 いろはにほへと</Text>
+      <Text>いろはにほへと
+  </Text>
+      <Text>いろはにほへと
+  ちりぬるを</Text>
 
     </LayoutBody>
   </LinearLayout>
