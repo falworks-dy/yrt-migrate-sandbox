@@ -5,7 +5,7 @@
     "type": "module",
     "dependencies": {
         "@msgpack/msgpack": "^3.1.2",
-        "yrt-migrate": "DenkiYagi/yrt-migrate#improvement/from-alpha13-to-1.0"
+        "yrt-migrate": "DenkiYagi/yrt-migrate#feature/from-alpha13-to-1.0"
     },
     "devDependencies": {
         "@types/node": "^20.0.0"
