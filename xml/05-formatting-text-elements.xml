@@ -4,7 +4,7 @@
 
   備考:
     該当要素については内容文字列を空白・改行も含めて keep する必要あり。
-    xml-formatter では設定項目が少なすぎておそらく調整不可能。js-beautify あたりが候補か？
+    xml-formatter では設定項目が少なすぎておそらく調整不可能。
 -->
 
 <LayoutXml>
