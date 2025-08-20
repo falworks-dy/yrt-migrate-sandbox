@@ -53,7 +53,7 @@ xpath@^0.0.33:
 
 yrt-migrate@DenkiYagi/yrt-migrate#feature/from-alpha13-to-1.0:
   version "2023.1.0"
-  resolved "https://codeload.github.com/DenkiYagi/yrt-migrate/tar.gz/9491ba6663c7149574743c9f09ed47cfb7519b98"
+  resolved "https://codeload.github.com/DenkiYagi/yrt-migrate/tar.gz/76f32f2ad408c6a2778815931942fe5a4fe4f991"
   dependencies:
     "@msgpack/msgpack" "^2.8.0"
     "@xmldom/xmldom" "^0.8.10"
