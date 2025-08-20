@@ -11,6 +11,7 @@ const inputFilter = (name) => {
 
     // if (name.startsWith("OK")) return false; // OK なやつを除外
     // if (/^\d/.test(name)) return false; // 数字で始まるやつ（バグ系）を除外
+    // if (name.startsWith("FIXED")) return false; // 修正済みのやつを除外
 
     return true;
 }
