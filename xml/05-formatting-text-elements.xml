@@ -1,0 +1,30 @@
+<!--
+  事象:
+    Text系要素の中身（内容冒頭の空白や改行など）が整形されることで、元々意図していたのとは異なる描画になってしまいます。
+
+  備考:
+    該当要素については内容文字列を空白・改行も含めて keep する必要あり。
+    xml-formatter では設定項目が少なすぎておそらく調整不可能。js-beautify あたりが候補か？
+-->
+
+<LayoutXml>
+  <LinearLayout>
+    <LayoutBody>
+
+      <Text size="8">leading whitespace ありの Text:</Text>
+      <Text>    いろはにほへといろはにほへといろはにほへといろはにほへといろはにほへといろはにほへといろはにほへといろはにほへといろはにほへといろはにほへと</Text>
+
+      <Spacer height="10" />
+
+      <Text size="8">RichText + Span:</Text>
+      <RichText><Span size="20">いろはにほへと</Span>いろはにほへといろはにほへといろはにほへといろはにほへといろはにほへといろはにほへといろはにほへといろはにほへといろはにほへといろはにほへといろはにほへと</RichText>
+
+      <Spacer height="10" />
+
+      <Text size="8">もともと改行ありの Text:</Text>
+      <Text>
+いろはにほへと</Text>
+
+    </LayoutBody>
+  </LinearLayout>
+</LayoutXml>
