@@ -22,7 +22,12 @@ const XML_OUT_DIR = 'xml-out';
  */
 export async function migrateAndSaveXmls(xmlFilepath) {
     console.log(`- input : ${xmlFilepath}`);
-    await runNpx('yrt-migrate', xmlFilepath);
+    try {
+        await runNpx('yrt-migrate', xmlFilepath);
+    } catch (e) {
+        console.error(e instanceof Error ? e.message : e);
+        return;
+    }
 
     const name = getFilenameWithoutExt(xmlFilepath);
     const yrtFilepath = join(XML_DIR, `${name}.yrt`); // same dir as input
