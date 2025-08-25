@@ -1,0 +1,14 @@
+<!-- 
+  事象:
+    v1.0 またはそれに近い形式の LayoutXML を入力すると、レイアウト定義の中身が全部消えてしまいます。
+-->
+
+<LinearLayout
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="https://schemas.yagisan.app/2025.1/layout.xsd">
+  <LayoutBody>
+
+    <Text>これは v1.0 形式のXMLです。</Text>
+
+  </LayoutBody>
+</LinearLayout>
