@@ -1,0 +1,28 @@
+<!--
+  事象:
+    単一 Grid のなかで GridStyle が複数あるとき、StyleXML にはそれぞれ個別の key で Grid が作成され、
+    適用されるのは最後の一つだけになってしまいます。
+
+  備考:
+    - StyleXML の Grid には CellRange を複数持たせられるので、そのように変更するべきか
+    - Grid以外の Table, ColumnText も同様のはず
+-->
+
+<LayoutXml>
+  <LinearLayout>
+    <LayoutBody>
+
+      <Grid cols="30 30" rows="10">
+        <GridStyle col="0" row="0" borderThickness="regular" />
+        <GridStyle col="1" row="0" borderThickness="thick" />
+        <GridCell col="0" row="0">
+          <Text>R0C0</Text>
+        </GridCell>
+        <GridCell col="1" row="0">
+          <Text>R0C1</Text>
+        </GridCell>
+      </Grid>
+
+    </LayoutBody>
+  </LinearLayout>
+</LayoutXml>
