@@ -1,0 +1,26 @@
+<!-- 
+  事象:
+    StyleXMLに作成された Grid 要素に cols="*" rows="auto" が設定されてしまいます。
+
+  備考:
+    - StyleXML で使える属性は、border系やtext系のスタイリング関連属性に限られており、
+      Grid の cols, rows のように、レイアウト構造そのものを決定するような属性は指定できません。
+      実際に出力結果の StyleXML を見ると、スキーマ違反のエラーが出ていることが分かります。
+    - cols, rows 必須化対応ロジックが StyleXML にも適用されてしまうことが原因かと思われます。
+      全ロジックを一律で StyleXML にも適用するのでなく、必要なものを選択的に適用するべきかと思われます。
+-->
+
+<LayoutXml>
+  <LinearLayout>
+    <LayoutBody>
+
+      <Grid cols="30" rows="10">
+        <GridStyle col="0" row="0" outerBorderThickness="1 2 3 4" />
+        <GridCell col="0" row="0">
+          <Text>text</Text>
+        </GridCell>
+      </Grid>
+
+    </LayoutBody>
+  </LinearLayout>
+</LayoutXml>

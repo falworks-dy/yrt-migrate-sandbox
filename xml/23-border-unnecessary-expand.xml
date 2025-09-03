@@ -1,0 +1,29 @@
+<!-- 
+  事象:
+    一部のborder系の属性が強制的に4値表記に変換されます。
+    (`1` -> `1 1 1 1`)
+
+  備考:
+    - Grid outerBorderThickness は、4値表記になっても直接の害はありませんが、
+      わざわざ変更する理由がありません。
+    - GridCell borderThickness は変化しないようです（正しい挙動です）。
+    - Grid borderThickness, Rectangle borderThickness などは、
+      そもそも1値表記しか許容されない属性なので、出力結果は明確に不正なXMLになります。
+    - 特定条件で7値くらいになる例も見かけた気がするのですが、再現できなくなりました。見間違いかも。
+-->
+
+<LayoutXml>
+  <LinearLayout>
+    <LayoutBody>
+
+      <Grid cols="30" rows="10" borderThickness="1" outerBorderThickness="2">
+        <GridCell col="0" row="0" borderThickness="3">
+          <Text>text</Text>
+        </GridCell>
+      </Grid>
+
+      <Rectangle width="100" height="20" borderThickness="6" />
+
+    </LayoutBody>
+  </LinearLayout>
+</LayoutXml>

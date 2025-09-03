@@ -1,0 +1,28 @@
+<!-- 
+  事象:
+    LinearLayoutの各子要素の前後の空白（改行含む）が collapse されます。
+
+  備考:
+    - LayoutBody必須化対応の副作用かと思われます。
+    - 出力結果はXMLとしては正しいのですが、見て分かるとおり、
+      ユーザーはおそらくフォーマットしたくなります。
+      しかしLayoutXMLは性質上、自動フォーマットすると壊れる危険があるため、
+      極力、元のXMLのフォーマットを壊さないような変換をすることが望ましいです。
+-->
+
+<LayoutXml>
+  <LinearLayout>
+
+    <LayoutHeader height="10">
+      <Text>header</Text>
+    </LayoutHeader>
+
+    <LayoutBody>
+
+      <Text>Line 1
+  Line 2 (indent: 2 spaces)</Text>
+
+    </LayoutBody>
+
+  </LinearLayout>
+</LayoutXml>
