@@ -1,0 +1,21 @@
+<!-- 
+  事象:
+    StyleXMLに作成された ColumnText 要素下の CellRange に rows="all" が設定されてしまいます。
+
+  備考:
+    - Grid/Table であればこの挙動で良いのですが、
+      ColumnText は常に1行なので row 属性は指定不可能です。
+-->
+
+<LayoutXml>
+  <LinearLayout>
+    <LayoutBody>
+
+      <ColumnText cols="10 10 10">
+        <ColumnTextStyle col="0" backgroundColor="gray" />
+        <ColumnTextContent>ABC</ColumnTextContent>
+      </ColumnText>
+
+    </LayoutBody>
+  </LinearLayout>
+</LayoutXml>

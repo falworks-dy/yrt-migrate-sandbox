@@ -1,0 +1,22 @@
+<!-- 
+  事象:
+    Content系要素が削除されて内容文字列が抽出される際、Content系要素の前後の空白が残り、
+    内容文字列と混ざってしまいます。
+
+  備考:
+    - 基本的に whitespace-sensitive なので、必要な空白は維持しつつ、
+      不要な空白が増えないように処理しないと、描画結果が変わってしまいます。
+    - 本XML例では、期待される出力結果は `<Text>  ABC  </Text>` です。
+-->
+
+<LayoutXml>
+  <LinearLayout>
+    <LayoutBody>
+
+      <Text>
+        <TextContent>  ABC  </TextContent>
+      </Text>
+
+    </LayoutBody>
+  </LinearLayout>
+</LayoutXml>

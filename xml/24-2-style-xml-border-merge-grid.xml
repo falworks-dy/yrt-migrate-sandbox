@@ -1,0 +1,28 @@
+<!-- 
+  事象:
+    GridStyle（マイグレート後は StyleXML CellRange）の `outerBorderLeftThickness` が
+    `outerBorderThickness="0 0 0 4"` に変換されます。
+
+  備考:
+    - 元のレイアウトを維持するためには、この例の場合、すべてのカスケードを考慮して
+      GridStyle (CellRange) の `outerBorderThickness` は `"1 2 3 4"` を指定する必要があります。
+    - 完全に対応しきることはMUSTではありませんが、無警告で間違った値になることは避けるべきかと思われます。
+    - GridStyle（並びにTableStyle）には、さらに複雑でマイグレート困難なパターンがありえます。
+      省エネな対応方法として、GridStyle/TableStyle は border の merge を一切行わず、
+      代わりに一律で警告（描画の目視確認と手動修正のお願い）を出す、という方法も考えられます。
+-->
+
+<LayoutXml>
+  <LinearLayout>
+    <LayoutBody>
+
+      <Grid cols="30" rows="10" borderThickness="1" outerBorderRightThickness="2">
+        <GridCell col="0" row="0" borderBottomThickness="3">
+          <Text>text</Text>
+        </GridCell>
+        <GridStyle col="0" row="0" outerBorderLeftThickness="4" />
+      </Grid>
+
+    </LayoutBody>
+  </LinearLayout>
+</LayoutXml>

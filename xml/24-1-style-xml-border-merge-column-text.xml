@@ -1,0 +1,23 @@
+<!-- 
+  事象:
+    ColumnTextStyle（マイグレート後は StyleXML CellRange）の `outerBorderRightThickness` が
+    `outerBorderThickness="0 2 0 0"` に変換されます。
+
+  備考:
+    - 元のレイアウトを維持するためには、この例の場合、
+      ColumnText の `borderThickness` が 1 であることを考慮して
+      ColumnTextStyle (CellRange) の `outerBorderThickness` は `"1 2 1 1"` を指定する必要があります。
+-->
+
+<LayoutXml>
+  <LinearLayout>
+    <LayoutBody>
+
+      <ColumnText cols="10 10 10" borderThickness="1">
+        <ColumnTextStyle col="0" outerBorderRightThickness="2" />
+        <ColumnTextContent>ABC</ColumnTextContent>
+      </ColumnText>
+
+    </LayoutBody>
+  </LinearLayout>
+</LayoutXml>
