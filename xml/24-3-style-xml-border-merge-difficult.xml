@@ -1,0 +1,65 @@
+<!-- 
+  事象:
+    マイグレート困難なため描画が変わってしまいますが、警告が出力されません。
+
+  備考:
+    24-2 でも言及した、GridStyle/TableStyle の border merge が困難（面倒ないし不可能）なパターンの例です。
+-->
+
+<LayoutXml>
+  <LinearLayout>
+    <LayoutBody>
+
+      <!--
+        例1.
+        GridStyle col/row で複数セルを対象にしたとき、
+        outerBorder 未指定部分の罫線が一定でない場合は outerBorder が補完不可能。
+        やるとしたら GridCell に割り振るしかない
+        （25番の親Gridの outerBorder のケースに類似、ただし優先度の関係が逆）
+      -->
+      <Grid cols="30 30" rows="10" backgroundColor="grayscale(0.9)">
+        <GridCell col="0" row="0" borderTopThickness="1">
+          <Text>R0C0</Text>
+        </GridCell>
+        <GridCell col="1" row="0" borderTopThickness="2">
+          <Text>R0C1</Text>
+        </GridCell>
+        <GridStyle col="0:1" row="0" outerBorderBottomThickness="3" />
+      </Grid>
+
+      <Spacer height="10" />
+
+      <!--
+        例2.
+        GridStyle が結合セルの一部だけを対象にしているとき、
+        全体を包むように GridStyle 範囲 (col, colspan, row, rowspan) を補正する必要あり
+      -->
+      <Grid cols="30 30" rows="10 10" backgroundColor="grayscale(0.9)">
+        <GridCell col="0" colspan="2" row="0" rowspan="2" borderTopThickness="1">
+          <Text>R0C0-R1C1</Text>
+        </GridCell>
+        <GridStyle col="0" row="0" outerBorderBottomThickness="3" />
+      </Grid>
+
+      <Spacer height="10" />
+
+      <!--
+        例3.
+        TableStyle row の値次第では、該当部分が body なのか footer なのか判断不可能
+        （ほぼ非現実的なケース）
+      -->
+      <Table items="${items}">
+        <TableColumn width="30">
+          <TableColumnTemplate>
+            <Text>Column 1 Body</Text>
+          </TableColumnTemplate>
+          <TableColumnFooter borderThickness="1">
+            <Text>Column 1 Footer</Text>
+          </TableColumnFooter>
+        </TableColumn>
+        <TableStyle col="all" row="1" outerBorderTopThickness="3" />
+      </Table>
+
+    </LayoutBody>
+  </LinearLayout>
+</LayoutXml>
