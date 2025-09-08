@@ -1,0 +1,41 @@
+<!--
+  事象:
+    親要素の outerBorderTopThickness が、子要素の borderTopThickness に割り振られます。
+
+  備考:
+    - 処理結果のXMLがシンタックスエラーになっているのは、単純に割り振り後の属性名の選択ミスかと推測されますが、
+      そもそもの前提として、親要素の outerBorder系 よりも子要素の border系 のほうが優先度が高いので、
+      このXML例では、子要素（GridCellなど）に影響を及ぼすべきではありません。
+    - 細かく条件分岐して「割り振り」をするべきかどうかを判断することも可能ですが、
+      「割り振り」が必要なケースでは自動変換を諦めて警告を出すだけにする、というのも選択肢かもしれません。
+-->
+
+<LayoutXml>
+  <LinearLayout>
+    <LayoutBody>
+
+      <Grid cols="30 30" rows="10" outerBorderTopThickness="1">
+        <GridCell col="0" row="0" borderThickness="2">
+          <Text>R0C0</Text>
+        </GridCell>
+        <GridCell col="1" row="0" borderThickness="3">
+          <Text>R0C1</Text>
+        </GridCell>
+      </Grid>
+
+      <Spacer height="10" />
+
+      <Table items="${items}" outerBorderTopThickness="1">
+        <TableColumn width="*">
+          <TableColumnHeader borderThickness="2">
+            <Text>Column 1 Header</Text>
+          </TableColumnHeader>
+          <TableColumnTemplate borderThickness="3">
+            <Text>Column 1 Body</Text>
+          </TableColumnTemplate>
+        </TableColumn>
+      </Table>
+
+    </LayoutBody>
+  </LinearLayout>
+</LayoutXml>
