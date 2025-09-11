@@ -2,6 +2,10 @@
   事象:
     マイグレート困難なため描画が変わってしまいますが、警告が出力されません。
 
+  期待結果:
+    - GridStyle/TableStyle の outerBorder 系属性がマージされないままStyleXML側に移動
+    - かつ、警告出力あり
+
   備考:
     24-2 でも言及した、GridStyle/TableStyle の border merge が困難（面倒ないし不可能）なパターンの例です。
 -->

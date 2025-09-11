@@ -3,10 +3,11 @@
     ColumnTextStyle（マイグレート後は StyleXML CellRange）の `outerBorderRightThickness` が
     `outerBorderThickness="0 2 0 0"` に変換されます。
 
-  備考:
+  期待結果:
     - 元のレイアウトを維持するためには、この例の場合、
       ColumnText の `borderThickness` が 1 であることを考慮して
       ColumnTextStyle (CellRange) の `outerBorderThickness` は `"1 2 1 1"` を指定する必要があります。
+    - 計画次第で、「outerBorderRightThickness="2" のままStyleXML側に移動」+「警告出力」でも可
 -->
 
 <LayoutXml>

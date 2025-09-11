@@ -1,7 +1,11 @@
 <!--
   事象:
     GridCell の個別方向指定属性を変換する際に、当該要素で未指定だった方向の値が正しく導出されません。（隣接セル系）
-    - col="1" の GridCell が borderThickness="2 0 0 1" になるべきところ "2 0 0 0" になる
+    col="1" の GridCell が borderThickness="2 0 0 0" になってしまいます。
+
+  期待結果:
+    先行定義セルである col="0" の GridCell が borderThickness="1" であることを考慮して、  
+    隣接する col="1" の GridCell は borderThickness="2 0 0 1" になる
 
   備考:
     セルの隣接部分の罫線については Feature #18897 で再び破壊的変更が予定されています。
